@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CarService {
     String create(CarCreateRequest request);
-    String update(CarUpdateRequest request);
+    String update(int id, CarUpdateRequest request);
     String delete(int id);
     CarGetByIdResponse getById(int id);
     List<CarGetAllResponse> getAll();

@@ -22,9 +22,9 @@ public class CarsController {
         return this.carService.create(request);
     }
 
-    @PutMapping(value = "/update")
-    public String update(@RequestBody CarUpdateRequest request) {
-        return this.carService.update(request);
+    @PutMapping(value = "/update/{id}")
+    public String update(@PathVariable int id, @RequestBody CarUpdateRequest request) {
+        return this.carService.update(id, request);
     }
 
     @DeleteMapping(value = "delete/{id}")
@@ -46,7 +46,7 @@ public class CarsController {
         return this.carService.getAllByModel(modelId);
     }
 
-    @GetMapping(value = "/getAllByModel/{colorId}")
+    @GetMapping(value = "/getAllByColor/{colorId}")
     public List<CarGetAllResponse> getAllByColor(@PathVariable int colorId) {
         return this.carService.getAllByColor(colorId);
     }

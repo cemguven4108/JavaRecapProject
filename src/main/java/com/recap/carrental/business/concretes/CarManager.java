@@ -26,8 +26,9 @@ public class CarManager implements CarService {
     }
 
     @Override
-    public String update(CarUpdateRequest request) {
-        return null;
+    public String update(int id, CarUpdateRequest request) {
+        this.carRepository.save(this.carDTOMapperService.CarUpdateRequestToCar(id, request));
+        return "Success";
     }
 
     @Override

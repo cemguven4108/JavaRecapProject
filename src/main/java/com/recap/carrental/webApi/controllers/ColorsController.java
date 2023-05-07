@@ -2,6 +2,7 @@ package com.recap.carrental.webApi.controllers;
 
 import com.recap.carrental.business.abstracts.ColorService;
 import com.recap.carrental.business.requests.colorRequests.ColorCreateRequest;
+import com.recap.carrental.business.requests.colorRequests.ColorUpdateRequest;
 import com.recap.carrental.business.responses.colorResponses.ColorGetAllResponse;
 import com.recap.carrental.business.responses.colorResponses.ColorGetByIdResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,16 @@ public class ColorsController {
         return this.colorService.create(request);
     }
 
+    @PutMapping(value = "/update/{id}")
+    public String update(@PathVariable int id, @RequestBody ColorUpdateRequest request) {
+        return this.colorService.update(id, request);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public String delete(@PathVariable int id) {
+        return this.colorService.delete(id);
+    }
+
     @GetMapping(value = "/{colorId}")
     public ColorGetByIdResponse getById(@PathVariable int colorId) {
         return this.colorService.getById(colorId);
@@ -28,6 +39,6 @@ public class ColorsController {
 
     @GetMapping(value = "/getAll")
     public List<ColorGetAllResponse> getAll() {
-        return null;
+        return this.colorService.getAll();
     }
 }

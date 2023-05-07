@@ -2,6 +2,7 @@ package com.recap.carrental.webApi.controllers;
 
 import com.recap.carrental.business.abstracts.ModelService;
 import com.recap.carrental.business.requests.modelRequests.ModelCreateRequest;
+import com.recap.carrental.business.requests.modelRequests.ModelUpdateRequest;
 import com.recap.carrental.business.responses.modelResponses.ModelGetAllResponse;
 import com.recap.carrental.business.responses.modelResponses.ModelGetByIdResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,16 @@ public class ModelsController {
         return this.modelService.create(request);
     }
 
+    @PutMapping(value = "/update/{id}")
+    public String update(@PathVariable int id, @RequestBody ModelUpdateRequest request) {
+        return this.modelService.update(id, request);
+    }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public String delete(@PathVariable int id) {
+        return this.modelService.delete(id);
+    }
+
     @GetMapping(value = "/{modelId}")
     public ModelGetByIdResponse getById(@PathVariable int modelId) {
         return this.modelService.getById(modelId);
@@ -28,6 +39,6 @@ public class ModelsController {
 
     @GetMapping(value = "/getAll")
     public List<ModelGetAllResponse> getAll() {
-        return null;
+        return this.modelService.getAll();
     }
 }
