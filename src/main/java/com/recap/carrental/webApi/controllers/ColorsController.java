@@ -22,17 +22,17 @@ public class ColorsController {
         return this.colorService.create(request);
     }
 
-    @PutMapping(value = "/update/{id}")
-    public String update(@PathVariable int id, @RequestBody ColorUpdateRequest request) {
-        return this.colorService.update(id, request);
+    @PutMapping(value = "/update/{colorId}")
+    public String update(@PathVariable int colorId, @RequestBody ColorUpdateRequest request) {
+        return this.colorService.update(colorId, request);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
-    public String delete(@PathVariable int id) {
-        return this.colorService.delete(id);
+    @DeleteMapping(value = "/delete/{colorId}")
+    public String delete(@PathVariable int colorId) {
+        return this.colorService.delete(colorId);
     }
 
-    @GetMapping(value = "/{colorId}")
+    @GetMapping(value = "/getById/{colorId}")
     public ColorGetByIdResponse getById(@PathVariable int colorId) {
         return this.colorService.getById(colorId);
     }

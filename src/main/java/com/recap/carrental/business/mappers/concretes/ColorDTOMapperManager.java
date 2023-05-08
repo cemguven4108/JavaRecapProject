@@ -44,18 +44,21 @@ public class ColorDTOMapperManager implements ColorDTOMapperService {
     }
 
     @Override
-    public Color ColorGetByIdResponseToColor(ColorGetByIdResponse response) {
-        Color color = new Color();
-        color.setId(response.id());
-        return color;
-    }
-
-    @Override
     public List<ColorGetAllResponse> ColorToColorGetAllResponse(List<Color> colors) {
         return colors.stream()
                 .map(color -> new ColorGetAllResponse(
                         color.getId(),
                         color.getColorName()
                 )).collect(Collectors.toList());
+    }
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
+
+    @Override
+    public Color ColorGetByIdResponseToColor(int colorId) {
+        Color color = new Color();
+        color.setId(colorId);
+        return color;
     }
 }

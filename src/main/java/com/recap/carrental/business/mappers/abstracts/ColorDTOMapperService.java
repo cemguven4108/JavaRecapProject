@@ -9,15 +9,13 @@ import com.recap.carrental.entities.Color;
 import java.util.List;
 
 public interface ColorDTOMapperService {
-
     Color ColorCreateRequestToColor(ColorCreateRequest request);
-
-
     Color ColorUpdateRequestToColor(int id, ColorUpdateRequest request);
-
-
     ColorGetByIdResponse ColorToColorGetByIdResponse(Color color);
-    Color ColorGetByIdResponseToColor(ColorGetByIdResponse response);
-
     List<ColorGetAllResponse> ColorToColorGetAllResponse(List<Color> colors);
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
+
+    Color ColorGetByIdResponseToColor(int colorId);
 }

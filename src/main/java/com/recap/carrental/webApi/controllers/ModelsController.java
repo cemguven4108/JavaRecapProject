@@ -22,17 +22,17 @@ public class ModelsController {
         return this.modelService.create(request);
     }
 
-    @PutMapping(value = "/update/{id}")
-    public String update(@PathVariable int id, @RequestBody ModelUpdateRequest request) {
-        return this.modelService.update(id, request);
+    @PutMapping(value = "/update/{modelId}")
+    public String update(@PathVariable int modelId, @RequestBody ModelUpdateRequest request) {
+        return this.modelService.update(modelId, request);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
-    public String delete(@PathVariable int id) {
-        return this.modelService.delete(id);
+    @DeleteMapping(value = "/delete/{modelId}")
+    public String delete(@PathVariable int modelId) {
+        return this.modelService.delete(modelId);
     }
 
-    @GetMapping(value = "/{modelId}")
+    @GetMapping(value = "/getById/{modelId}")
     public ModelGetByIdResponse getById(@PathVariable int modelId) {
         return this.modelService.getById(modelId);
     }
@@ -40,5 +40,10 @@ public class ModelsController {
     @GetMapping(value = "/getAll")
     public List<ModelGetAllResponse> getAll() {
         return this.modelService.getAll();
+    }
+
+    @GetMapping(value = "/getAllByBrand/{brandId}")
+    public List<ModelGetAllResponse> getAllByBrand(@PathVariable int brandId) {
+        return this.modelService.getAllByBrand(brandId);
     }
 }

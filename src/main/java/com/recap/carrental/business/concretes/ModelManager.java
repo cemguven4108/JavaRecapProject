@@ -49,4 +49,11 @@ public class ModelManager implements ModelService {
                 this.modelRepository.findAll()
         );
     }
+
+    @Override
+    public List<ModelGetAllResponse> getAllByBrand(int brandId) {
+        return this.modelDTOMapperService.ModelToModelGetAllResponse(
+                this.modelRepository.findAllByBrand_Id(brandId)
+        );
+    }
 }

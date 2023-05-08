@@ -9,10 +9,13 @@ import com.recap.carrental.entities.Model;
 import java.util.List;
 
 public interface ModelDTOMapperService {
-
     Model ModelCreateRequestToModel(ModelCreateRequest request);
     Model ModelUpdateRequestToModel(int id, ModelUpdateRequest request);
     ModelGetByIdResponse ModelToModelGetByIdResponse(Model model);
-    Model ModelGetByIdResponseToModel(ModelGetByIdResponse response);
     List<ModelGetAllResponse> ModelToModelGetAllResponse(List<Model> models);
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
+
+    Model ModelGetByIdResponseToModel(int modelId);
 }

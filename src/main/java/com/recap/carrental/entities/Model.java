@@ -21,4 +21,8 @@ public class Model {
 
     @Column(name = "model_year", nullable = false)
     private int modelYear;
+
+    @ManyToOne(targetEntity = Brand.class)
+    @JoinColumn(name = "brand_id", referencedColumnName = "id", nullable = false)
+    private Brand brand;
 }

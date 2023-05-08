@@ -29,9 +29,9 @@ public class CarDTOMapperManager implements CarDTOMapperService {
         car.setState(request.state());
         car.setDescription(request.description());
         car.setModel(
-                this.modelDTOMapperService.ModelGetByIdResponseToModel(request.model()));
+                this.modelDTOMapperService.ModelGetByIdResponseToModel(request.modelId()));
         car.setColor(
-                this.colorDTOMapperService.ColorGetByIdResponseToColor(request.color()));
+                this.colorDTOMapperService.ColorGetByIdResponseToColor(request.colorId()));
         return car;
     }
 
@@ -44,9 +44,9 @@ public class CarDTOMapperManager implements CarDTOMapperService {
         car.setState(request.state());
         car.setDescription(request.description());
         car.setModel(
-                this.modelDTOMapperService.ModelGetByIdResponseToModel(request.model()));
+                this.modelDTOMapperService.ModelGetByIdResponseToModel(request.modelId()));
         car.setColor(
-                this.colorDTOMapperService.ColorGetByIdResponseToColor(request.color()));
+                this.colorDTOMapperService.ColorGetByIdResponseToColor(request.colorId()));
         return car;
     }
 
@@ -55,6 +55,7 @@ public class CarDTOMapperManager implements CarDTOMapperService {
         return new CarGetByIdResponse(
                 car.getId(),
                 car.getPlateNumber(),
+                car.getModel().getBrand().getBrandName(),
                 car.getModel().getModelName(),
                 car.getModel().getModelYear(),
                 car.getColor().getColorName(),
@@ -70,6 +71,7 @@ public class CarDTOMapperManager implements CarDTOMapperService {
                 .map(car -> new CarGetAllResponse(
                         car.getId(),
                         car.getPlateNumber(),
+                        car.getModel().getBrand().getBrandName(),
                         car.getModel().getModelName(),
                         car.getModel().getModelYear(),
                         car.getColor().getColorName(),
@@ -78,4 +80,7 @@ public class CarDTOMapperManager implements CarDTOMapperService {
                         car.getDescription()
                 )).collect(Collectors.toList());
     }
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
 }

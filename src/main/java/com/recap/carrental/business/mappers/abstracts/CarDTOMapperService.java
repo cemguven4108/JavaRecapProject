@@ -9,9 +9,11 @@ import com.recap.carrental.entities.Car;
 import java.util.List;
 
 public interface CarDTOMapperService {
-
     Car CarCreateRequestToCar(CarCreateRequest request);
     Car CarUpdateRequestToCar(int id, CarUpdateRequest request);
     CarGetByIdResponse CarToCarGetByIdResponse(Car car);
     List<CarGetAllResponse> CarToCarGetAllResponse(List<Car> cars);
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
 }

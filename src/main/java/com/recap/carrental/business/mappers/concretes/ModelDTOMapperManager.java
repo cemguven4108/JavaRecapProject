@@ -1,5 +1,6 @@
 package com.recap.carrental.business.mappers.concretes;
 
+import com.recap.carrental.business.mappers.abstracts.BrandDTOMapperService;
 import com.recap.carrental.business.mappers.abstracts.ModelDTOMapperService;
 import com.recap.carrental.business.requests.modelRequests.ModelCreateRequest;
 import com.recap.carrental.business.requests.modelRequests.ModelUpdateRequest;
@@ -16,11 +17,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ModelDTOMapperManager implements ModelDTOMapperService {
 
+    private final BrandDTOMapperService brandDTOMapperService;
+
     @Override
     public Model ModelCreateRequestToModel(ModelCreateRequest request) {
         Model model = new Model();
         model.setModelName(request.modelName());
         model.setModelYear(request.modelYear());
+        model.setBrand(this.brandDTOMapperService.GetByIdResponseToBrand(request.brandId()));
 
         return model;
     }
@@ -31,6 +35,7 @@ public class ModelDTOMapperManager implements ModelDTOMapperService {
         model.setId(id);
         model.setModelName(request.modelName());
         model.setModelYear(request.modelYear());
+        model.setBrand(this.brandDTOMapperService.GetByIdResponseToBrand(request.brandId()));
 
         return model;
     }
@@ -39,17 +44,10 @@ public class ModelDTOMapperManager implements ModelDTOMapperService {
     public ModelGetByIdResponse ModelToModelGetByIdResponse(Model model) {
         return new ModelGetByIdResponse(
                 model.getId(),
+                model.getBrand().getBrandName(),
                 model.getModelName(),
                 model.getModelYear()
         );
-    }
-
-    @Override
-    public Model ModelGetByIdResponseToModel(ModelGetByIdResponse response) {
-        Model model = new Model();
-        model.setId(response.id());
-
-        return model;
     }
 
     @Override
@@ -57,8 +55,21 @@ public class ModelDTOMapperManager implements ModelDTOMapperService {
         return models.stream()
                 .map(model -> new ModelGetAllResponse(
                         model.getId(),
+                        model.getBrand().getBrandName(),
                         model.getModelName(),
                         model.getModelYear()
                 )).collect(Collectors.toList());
     }
+
+
+    // -------------------- REVERSE MAPPING ------------------ \\
+
+    @Override
+    public Model ModelGetByIdResponseToModel(int modelId) {
+        Model model = new Model();
+        model.setId(modelId);
+
+        return model;
+    }
+
 }

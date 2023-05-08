@@ -13,4 +13,5 @@ public interface ModelService {
     String delete(int id);
     ModelGetByIdResponse getById(int modelId);
     List<ModelGetAllResponse> getAll();
+    List<ModelGetAllResponse> getAllByBrand(int brandId);
 }
