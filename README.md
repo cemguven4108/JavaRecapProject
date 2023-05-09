@@ -11,7 +11,7 @@ Transaction Handling \
 Performance Tweaks
 
 Front-End Project Start \
-Mail Sender Implementation
+Mail Sender Implementation \
 CSS Styling \
 Front-End Tweaks For QOL \
 
