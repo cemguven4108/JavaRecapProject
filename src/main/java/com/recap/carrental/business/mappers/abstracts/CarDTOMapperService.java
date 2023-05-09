@@ -16,4 +16,6 @@ public interface CarDTOMapperService {
 
 
     // -------------------- REVERSE MAPPING ------------------ \\
+
+    Car CarGetByIdResponseToCar(int carId);
 }

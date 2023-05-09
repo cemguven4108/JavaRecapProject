@@ -83,4 +83,12 @@ public class CarDTOMapperManager implements CarDTOMapperService {
 
 
     // -------------------- REVERSE MAPPING ------------------ \\
+
+    @Override
+    public Car CarGetByIdResponseToCar(int carId) {
+        Car car = new Car();
+        car.setId(carId);
+
+        return car;
+    }
 }

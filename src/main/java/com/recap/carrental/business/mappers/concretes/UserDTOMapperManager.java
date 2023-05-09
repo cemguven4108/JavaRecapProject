@@ -63,4 +63,12 @@ public class UserDTOMapperManager implements UserDTOMapperService {
 
 
     // -------------------- REVERSE MAPPING ------------------ \\
+
+    @Override
+    public User GetByIdResponseToUser(int userId) {
+        User user = new User();
+        user.setId(userId);
+
+        return user;
+    }
 }

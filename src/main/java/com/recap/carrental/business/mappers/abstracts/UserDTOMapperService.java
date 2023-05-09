@@ -16,4 +16,6 @@ public interface UserDTOMapperService {
 
 
     // -------------------- REVERSE MAPPING ------------------ \\
+
+    User GetByIdResponseToUser(int userId);
 }

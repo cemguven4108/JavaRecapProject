@@ -28,6 +28,9 @@ public class UserManager implements UserService {
     @Override
     public String update(int id, UserUpdateRequest request) {
         this.userRepository.save(this.userDTOMapperService.UserUpdateRequestToUser(id, request));
+
+        // TODO find a way to compare 2 Objects with each other to see if we were successful on updating the data
+
         return "Success";
     }
 
