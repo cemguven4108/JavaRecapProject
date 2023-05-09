@@ -5,6 +5,7 @@ import com.recap.carrental.business.requests.brandRequests.BrandCreateRequest;
 import com.recap.carrental.business.requests.brandRequests.BrandUpdateRequest;
 import com.recap.carrental.business.responses.brandResponses.BrandGetAllResponse;
 import com.recap.carrental.business.responses.brandResponses.BrandGetByIdResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,18 +19,18 @@ public class BrandsController {
     private final BrandService brandService;
 
     @PostMapping(value = "/create")
-    public String create(@RequestBody BrandCreateRequest request) {
-        return this.brandService.create(request);
+    public void create(@RequestBody @Valid BrandCreateRequest request) {
+        this.brandService.create(request);
     }
 
     @PutMapping(value = "/update/{brandId}")
-    public String update(@PathVariable int brandId, @RequestBody BrandUpdateRequest request) {
-        return this.brandService.update(brandId, request);
+    public void update(@PathVariable int brandId, @RequestBody BrandUpdateRequest request) {
+        this.brandService.update(brandId, request);
     }
 
     @DeleteMapping(value = "/delete/{brandId}")
-    public String delete(@PathVariable int brandId) {
-        return this.brandService.delete(brandId);
+    public void delete(@PathVariable int brandId) {
+        this.brandService.delete(brandId);
     }
 
     @GetMapping(value = "/getById/{brandId}")

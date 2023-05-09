@@ -6,6 +6,7 @@ import com.recap.carrental.business.requests.brandRequests.BrandCreateRequest;
 import com.recap.carrental.business.requests.brandRequests.BrandUpdateRequest;
 import com.recap.carrental.business.responses.brandResponses.BrandGetAllResponse;
 import com.recap.carrental.business.responses.brandResponses.BrandGetByIdResponse;
+import com.recap.carrental.business.rules.BrandBusinessRules;
 import com.recap.carrental.dataAccess.BrandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,23 +19,27 @@ public class BrandManager implements BrandService {
 
     private final BrandRepository brandRepository;
     private final BrandDTOMapperService brandDTOMapperService;
+    private final BrandBusinessRules brandBusinessRules;
 
     @Override
-    public String create(BrandCreateRequest request) {
+    public void create(BrandCreateRequest request) {
+        this.brandBusinessRules.checkIfBrandNameExists(request.brandName());
+        this.brandBusinessRules.checkIfBrandNameLengthIsValid(request.brandName());
+
         this.brandRepository.save(this.brandDTOMapperService.BrandCreateRequestToBrand(request));
-        return this.brandRepository.existsByBrandName(request.brandName()) ? "Success" : "Failed";
     }
 
     @Override
-    public String update(int brandId, BrandUpdateRequest request) {
+    public void update(int brandId, BrandUpdateRequest request) {
+        this.brandBusinessRules.checkIfBrandNameExists(request.brandName());
+        this.brandBusinessRules.checkIfBrandNameLengthIsValid(request.brandName());
+
         this.brandRepository.save(this.brandDTOMapperService.BrandUpdateRequestToBrand(brandId, request));
-        return this.brandRepository.existsById(brandId) ? "Success" : "Failed";
     }
 
     @Override
-    public String delete(int brandId) {
+    public void delete(int brandId) {
         this.brandRepository.deleteById(brandId);
-        return this.brandRepository.findById(brandId).isEmpty() ? "Success" : "Failed";
     }
 
     @Override

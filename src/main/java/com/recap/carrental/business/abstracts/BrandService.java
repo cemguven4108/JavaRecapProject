@@ -7,9 +7,9 @@ import com.recap.carrental.business.responses.brandResponses.BrandGetByIdRespons
 import java.util.List;
 
 public interface BrandService {
-    String create(BrandCreateRequest request);
-    String update(int brandId, BrandUpdateRequest request);
-    String delete(int brandId);
+    void create(BrandCreateRequest request);
+    void update(int brandId, BrandUpdateRequest request);
+    void delete(int brandId);
     BrandGetByIdResponse getById(int brandId);
     List<BrandGetAllResponse> getAll();
 }
