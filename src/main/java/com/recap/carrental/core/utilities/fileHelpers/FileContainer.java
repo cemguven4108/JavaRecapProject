@@ -1,9 +1,10 @@
 package com.recap.carrental.core.utilities.fileHelpers;
 
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+
 
 public record FileContainer(
         String contentType,
         String headerValue,
-        InputStreamResource resource
+        Resource resource
 ) {}

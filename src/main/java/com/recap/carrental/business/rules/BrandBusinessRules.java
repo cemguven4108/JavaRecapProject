@@ -1,6 +1,7 @@
 package com.recap.carrental.business.rules;
 
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.DuplicateNameException;
+import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.EntityDoesNotExistException;
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.MaxNameLengthViolationException;
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.MinNameLengthViolationException;
 import com.recap.carrental.dataAccess.BrandRepository;
@@ -19,6 +20,12 @@ public class BrandBusinessRules {
         if (this.brandRepository.existsByBrandName(brandName)) {
             throw new DuplicateNameException("BrandName Already Exists");
         }
+    }
+
+    public void checkIfBrandExists(int brandId) {
+        this.brandRepository.findById(brandId).orElseThrow(() ->
+                new EntityDoesNotExistException(String.format("Brand with %s id does not exist", brandId))
+        );
     }
 
     public void checkIfBrandNameLengthIsValid(String brandName) {

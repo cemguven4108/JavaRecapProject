@@ -1,7 +1,6 @@
 package com.recap.carrental.core.utilities.fileHelpers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/files")
+@RequestMapping(value = "/api/v1/core/files")
 public class FileController {
 
     private final FileService filesService;
@@ -26,10 +25,9 @@ public class FileController {
 
     @GetMapping(value = "/download/{path:.+}")
     public ResponseEntity<?> downloadFile(@PathVariable("path") String filename) {
-        FileContainer container = this.filesService.download(filename);
+        byte[] imageData = this.filesService.download(filename);
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(container.contentType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, container.headerValue())
-                .body(container.resource());
+                .contentType(MediaType.valueOf("image/png"))
+                .body(imageData);
     }
 }

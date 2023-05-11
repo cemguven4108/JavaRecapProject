@@ -2,7 +2,7 @@ package com.recap.carrental.business.responses.carImageResponses;
 
 import java.time.ZonedDateTime;
 
-public record CarImageGetAllResponse(
+public record CarImageGetByIdResponse(
         int id,
         int carId,
         String imagePath,

@@ -7,6 +7,7 @@ import com.recap.carrental.business.requests.brandRequests.BrandUpdateRequest;
 import com.recap.carrental.business.responses.brandResponses.BrandGetAllResponse;
 import com.recap.carrental.business.responses.brandResponses.BrandGetByIdResponse;
 import com.recap.carrental.business.rules.BrandBusinessRules;
+import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.EntityDoesNotExistException;
 import com.recap.carrental.dataAccess.BrandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -39,13 +40,16 @@ public class BrandManager implements BrandService {
 
     @Override
     public void delete(int brandId) {
+        this.brandBusinessRules.checkIfBrandExists(brandId);
+
         this.brandRepository.deleteById(brandId);
     }
 
     @Override
     public BrandGetByIdResponse getById(int brandId) {
         return this.brandDTOMapperService.BrandToBrandGetByIdResponse(
-                this.brandRepository.findById(brandId).orElseThrow()
+                this.brandRepository.findById(brandId).orElseThrow(() ->
+                        new EntityDoesNotExistException(String.format("Brand with %s id does not exist", brandId)))
         );
     }
 

@@ -1,6 +1,7 @@
 package com.recap.carrental.core.utilities.exceptions;
 
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.DuplicateNameException;
+import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.EntityDoesNotExistException;
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.MaxNameLengthViolationException;
 import com.recap.carrental.core.utilities.exceptions.runtimeExceptions.MinNameLengthViolationException;
 import org.springframework.http.HttpStatus;
@@ -13,27 +14,14 @@ import java.time.ZonedDateTime;
 @RestControllerAdvice
 public class BusinessExceptionHandler {
 
-    @ExceptionHandler
+    @ExceptionHandler(value = {
+            EntityDoesNotExistException.class,
+            DuplicateNameException.class,
+            MinNameLengthViolationException.class,
+            MaxNameLengthViolationException.class
+    })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDetails businessExceptionHandler(DuplicateNameException exception) {
-        return new ExceptionDetails(
-                exception.getMessage(),
-                ZonedDateTime.now()
-        );
-    }
-
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDetails businessExceptionHandler(MinNameLengthViolationException exception) {
-        return new ExceptionDetails(
-                exception.getMessage(),
-                ZonedDateTime.now()
-        );
-    }
-
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDetails businessExceptionHandler(MaxNameLengthViolationException exception) {
+    public ExceptionDetails businessExceptionHandler(EntityDoesNotExistException exception) {
         return new ExceptionDetails(
                 exception.getMessage(),
                 ZonedDateTime.now()

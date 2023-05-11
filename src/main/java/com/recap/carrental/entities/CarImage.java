@@ -22,8 +22,8 @@ public class CarImage {
     @Column(name = "image", unique = true, nullable = false)
     private String imagePath;
 
-    @Column(name = "date", nullable = false)
-    private ZonedDateTime date;
+    @Column(name = "creation_time", nullable = false)
+    private ZonedDateTime creationTime;
 
     @ManyToOne(targetEntity = Car.class)
     @JoinColumn(name = "car_id", referencedColumnName = "id", nullable = false)
