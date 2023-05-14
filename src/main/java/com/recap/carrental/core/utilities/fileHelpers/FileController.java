@@ -1,7 +1,6 @@
 package com.recap.carrental.core.utilities.fileHelpers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,11 +22,16 @@ public class FileController {
         return this.filesService.upload(file);
     }
 
+    @DeleteMapping(value = "/delete/{path:.+}")
+    public void delete(@PathVariable("path") String filename) {
+        this.filesService.delete(filename);
+    }
+
     @GetMapping(value = "/download/{path:.+}")
     public ResponseEntity<?> downloadFile(@PathVariable("path") String filename) {
-        byte[] imageData = this.filesService.download(filename);
+        FileContainer container = this.filesService.download(filename);
         return ResponseEntity.ok()
-                .contentType(MediaType.valueOf("image/png"))
-                .body(imageData);
+                .contentType(container.contentType())
+                .body(container.imageData());
     }
 }

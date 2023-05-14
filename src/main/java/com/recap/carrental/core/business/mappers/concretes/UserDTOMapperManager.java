@@ -1,11 +1,12 @@
-package com.recap.carrental.business.mappers.concretes;
+package com.recap.carrental.core.business.mappers.concretes;
 
-import com.recap.carrental.business.mappers.abstracts.UserDTOMapperService;
-import com.recap.carrental.business.requests.userRequests.UserCreateRequest;
-import com.recap.carrental.business.requests.userRequests.UserUpdateRequest;
-import com.recap.carrental.business.responses.userResponses.UserGetAllResponse;
-import com.recap.carrental.business.responses.userResponses.UserGetByIdResponse;
-import com.recap.carrental.entities.User;
+import com.recap.carrental.core.business.mappers.abstracts.UserDTOMapperService;
+import com.recap.carrental.core.business.requests.userRequests.UserCreateRequest;
+import com.recap.carrental.core.business.requests.userRequests.UserUpdateRequest;
+import com.recap.carrental.core.business.responses.userResponses.UserGetAllResponse;
+import com.recap.carrental.core.business.responses.userResponses.UserGetByEmailResponse;
+import com.recap.carrental.core.business.responses.userResponses.UserGetByIdResponse;
+import com.recap.carrental.core.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class UserDTOMapperManager implements UserDTOMapperService {
         user.setLastName(request.lastName());
         user.setEmail(request.email());
         user.setPassword(request.password());
+        user.setRole(request.role());
 
         return user;
     }
@@ -34,6 +36,7 @@ public class UserDTOMapperManager implements UserDTOMapperService {
         user.setLastName(request.lastName());
         user.setEmail(request.email());
         user.setPassword(request.password());
+        user.setRole(request.role());
 
         return user;
     }
@@ -45,7 +48,20 @@ public class UserDTOMapperManager implements UserDTOMapperService {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                user.getRole()
+        );
+    }
+
+    @Override
+    public UserGetByEmailResponse UserToUserGetByEmailResponse(User user) {
+        return new UserGetByEmailResponse(
+                user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getRole()
         );
     }
 
@@ -57,7 +73,8 @@ public class UserDTOMapperManager implements UserDTOMapperService {
                         user.getFirstName(),
                         user.getLastName(),
                         user.getEmail(),
-                        user.getPassword()
+                        user.getPassword(),
+                        user.getRole()
                 )).collect(Collectors.toList());
     }
 
@@ -70,5 +87,10 @@ public class UserDTOMapperManager implements UserDTOMapperService {
         user.setId(userId);
 
         return user;
+    }
+
+    @Override
+    public User GetByEmailResponseToUser(int userId) {
+        return this.GetByIdResponseToUser(userId);
     }
 }

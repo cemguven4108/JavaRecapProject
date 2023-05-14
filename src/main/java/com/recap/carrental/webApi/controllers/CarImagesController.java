@@ -31,6 +31,11 @@ public class CarImagesController {
         );
     }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public String delete(@PathVariable int id) {
+        return this.carImageService.delete(id);
+    }
+
     @GetMapping(value = "/getAllByCar/{carId}")
     public List<CarImageGetAllResponse> getAllByCarId(@PathVariable int carId) {
         return this.carImageService.getAllByCarId(carId);

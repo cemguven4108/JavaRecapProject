@@ -1,10 +1,10 @@
 package com.recap.carrental.webApi.controllers;
 
-import com.recap.carrental.business.abstracts.UserService;
-import com.recap.carrental.business.requests.userRequests.UserCreateRequest;
-import com.recap.carrental.business.requests.userRequests.UserUpdateRequest;
-import com.recap.carrental.business.responses.userResponses.UserGetAllResponse;
-import com.recap.carrental.business.responses.userResponses.UserGetByIdResponse;
+import com.recap.carrental.core.business.abstracts.UserService;
+import com.recap.carrental.core.business.requests.userRequests.UserCreateRequest;
+import com.recap.carrental.core.business.requests.userRequests.UserUpdateRequest;
+import com.recap.carrental.core.business.responses.userResponses.UserGetAllResponse;
+import com.recap.carrental.core.business.responses.userResponses.UserGetByIdResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

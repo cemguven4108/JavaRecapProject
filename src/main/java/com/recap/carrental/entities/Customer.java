@@ -1,5 +1,6 @@
 package com.recap.carrental.entities;
 
+import com.recap.carrental.core.entities.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

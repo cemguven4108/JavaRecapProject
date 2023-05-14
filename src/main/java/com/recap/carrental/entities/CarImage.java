@@ -19,7 +19,7 @@ public class CarImage {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "image", unique = true, nullable = false)
+    @Column(name = "image_path", unique = true, nullable = false)
     private String imagePath;
 
     @Column(name = "creation_time", nullable = false)

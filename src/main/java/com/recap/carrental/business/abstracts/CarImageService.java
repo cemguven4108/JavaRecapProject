@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface CarImageService {
     String create(CarImageCreateRequest request);
+    String delete(int id);
     CarImageGetByIdResponse getById(int id);
     List<CarImageGetAllResponse> getAllByCarId(int carId);
 }

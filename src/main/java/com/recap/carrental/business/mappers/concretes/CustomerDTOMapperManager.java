@@ -1,7 +1,7 @@
 package com.recap.carrental.business.mappers.concretes;
 
 import com.recap.carrental.business.mappers.abstracts.CustomerDTOMapperService;
-import com.recap.carrental.business.mappers.abstracts.UserDTOMapperService;
+import com.recap.carrental.core.business.mappers.abstracts.UserDTOMapperService;
 import com.recap.carrental.business.requests.customerRequests.CustomerCreateRequest;
 import com.recap.carrental.business.requests.customerRequests.CustomerUpdateRequest;
 import com.recap.carrental.business.responses.customerResponses.CustomerGetAllResponse;

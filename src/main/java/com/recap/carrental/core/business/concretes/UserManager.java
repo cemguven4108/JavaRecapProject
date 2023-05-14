@@ -1,12 +1,13 @@
-package com.recap.carrental.business.concretes;
+package com.recap.carrental.core.business.concretes;
 
-import com.recap.carrental.business.abstracts.UserService;
-import com.recap.carrental.business.mappers.abstracts.UserDTOMapperService;
-import com.recap.carrental.business.requests.userRequests.UserCreateRequest;
-import com.recap.carrental.business.requests.userRequests.UserUpdateRequest;
-import com.recap.carrental.business.responses.userResponses.UserGetAllResponse;
-import com.recap.carrental.business.responses.userResponses.UserGetByIdResponse;
-import com.recap.carrental.dataAccess.UserRepository;
+import com.recap.carrental.core.business.abstracts.UserService;
+import com.recap.carrental.core.business.mappers.abstracts.UserDTOMapperService;
+import com.recap.carrental.core.business.requests.userRequests.UserCreateRequest;
+import com.recap.carrental.core.business.requests.userRequests.UserUpdateRequest;
+import com.recap.carrental.core.business.responses.userResponses.UserGetAllResponse;
+import com.recap.carrental.core.business.responses.userResponses.UserGetByEmailResponse;
+import com.recap.carrental.core.business.responses.userResponses.UserGetByIdResponse;
+import com.recap.carrental.core.dataAccess.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +45,13 @@ public class UserManager implements UserService {
     public UserGetByIdResponse getById(int id) {
         return this.userDTOMapperService.UserToUserGetByIdResponse(
                 this.userRepository.findById(id).orElseThrow()
+        );
+    }
+
+    @Override
+    public UserGetByEmailResponse getByEmail(String email) {
+        return this.userDTOMapperService.UserToUserGetByEmailResponse(
+                this.userRepository.findUserByEmail(email)
         );
     }
 

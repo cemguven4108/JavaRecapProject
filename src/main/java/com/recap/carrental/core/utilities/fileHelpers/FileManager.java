@@ -1,25 +1,22 @@
 package com.recap.carrental.core.utilities.fileHelpers;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.UUID;
 
 @Service
 public class FileManager implements FileService{
 
-    @Value("${files.upload-dir}")
+    @Value("${images.upload.dir}")
     private Path path;
 
     @Override
@@ -35,10 +32,21 @@ public class FileManager implements FileService{
     }
 
     @Override
-    public byte[] download(String filename) {
+    public void delete(String filename) {
+        String filePath = System.getProperty("user.dir") + this.path + File.separator + filename;
+        Path targetLocation = this.path.resolve(filePath);
+
+        deleteIfExists(targetLocation);
+    }
+
+    @Override
+    public FileContainer download(String filename) {
         String filePath = System.getProperty("user.dir") + this.path + File.separator + filename;
 
-        return this.getBytes(Path.of(filePath));
+        return new FileContainer(
+                MediaType.IMAGE_JPEG,
+                this.getBytes(Path.of(filePath))
+        );
     }
 
     private void uploadToDestination(MultipartFile file, Path targetLocation) {
@@ -46,6 +54,15 @@ public class FileManager implements FileService{
             if (!Files.isDirectory(targetLocation))
                 Files.createDirectories(targetLocation);
             Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+        }
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void deleteIfExists(Path targetLocation) {
+        try {
+            Files.deleteIfExists(targetLocation);
         }
         catch (IOException e) {
             throw new RuntimeException(e);

@@ -1,10 +1,8 @@
 package com.recap.carrental.core.utilities.fileHelpers;
 
-import org.springframework.core.io.Resource;
-
+import org.springframework.http.MediaType;
 
 public record FileContainer(
-        String contentType,
-        String headerValue,
-        Resource resource
+        MediaType contentType,
+        byte[] imageData
 ) {}
