@@ -16,7 +16,7 @@ import java.util.UUID;
 @Service
 public class FileManager implements FileService{
 
-    @Value("${images.upload.dir}")
+    @Value("${application.utilities.upload-dir}")
     private Path path;
 
     @Override

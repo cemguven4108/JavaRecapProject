@@ -5,6 +5,7 @@ import com.recap.carrental.business.requests.colorRequests.ColorCreateRequest;
 import com.recap.carrental.business.requests.colorRequests.ColorUpdateRequest;
 import com.recap.carrental.business.responses.colorResponses.ColorGetAllResponse;
 import com.recap.carrental.business.responses.colorResponses.ColorGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/colors")
+@Tag(name = "Color")
 public class ColorsController {
 
     private final ColorService colorService;

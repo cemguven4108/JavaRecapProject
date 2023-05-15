@@ -1,11 +1,11 @@
 package com.recap.carrental.business.mappers.concretes;
 
 import com.recap.carrental.business.mappers.abstracts.CustomerDTOMapperService;
-import com.recap.carrental.core.business.mappers.abstracts.UserDTOMapperService;
 import com.recap.carrental.business.requests.customerRequests.CustomerCreateRequest;
 import com.recap.carrental.business.requests.customerRequests.CustomerUpdateRequest;
 import com.recap.carrental.business.responses.customerResponses.CustomerGetAllResponse;
 import com.recap.carrental.business.responses.customerResponses.CustomerGetByIdResponse;
+import com.recap.carrental.core.business.abstracts.UserService;
 import com.recap.carrental.entities.Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,13 +17,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CustomerDTOMapperManager implements CustomerDTOMapperService {
 
-    private final UserDTOMapperService userDTOMapperService;
+    private final UserService userService;
 
     @Override
     public Customer CustomerCreateRequestToCustomer(CustomerCreateRequest request) {
         Customer customer = new Customer();
         customer.setCompanyName(request.companyName());
-        customer.setUser(this.userDTOMapperService.GetByIdResponseToUser(request.userId()));
+        customer.setUser(this.userService.getById(request.userId()));
 
         return customer;
     }
@@ -33,7 +33,7 @@ public class CustomerDTOMapperManager implements CustomerDTOMapperService {
         Customer customer = new Customer();
         customer.setId(id);
         customer.setCompanyName(request.companyName());
-        customer.setUser(this.userDTOMapperService.GetByIdResponseToUser(request.userId()));
+        customer.setUser(this.userService.getById(request.userId()));
 
         return customer;
     }

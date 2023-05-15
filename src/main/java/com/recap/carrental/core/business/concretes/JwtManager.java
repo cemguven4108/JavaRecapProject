@@ -18,8 +18,8 @@ import java.util.function.Function;
 
 @Service
 public class JwtManager implements JwtService {
-    @Value("${jwt.private.key}")
-    String secret;
+    @Value("${application.security.jwt.private-key}")
+    private String secretKey;
 
     @Override
     public String extractUsername(String token) {
@@ -75,6 +75,6 @@ public class JwtManager implements JwtService {
     }
 
     private Key getSignInKey() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(this.secret));
+        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(this.secretKey));
     }
 }

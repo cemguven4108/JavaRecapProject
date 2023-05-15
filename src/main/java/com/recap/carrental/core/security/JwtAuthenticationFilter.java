@@ -1,6 +1,7 @@
 package com.recap.carrental.core.security;
 
 import com.recap.carrental.core.business.abstracts.JwtService;
+import com.recap.carrental.core.business.abstracts.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +23,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final TokenService tokenService;
     private final UserDetailsService userDetailsService;
 
     @Override
@@ -41,7 +43,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         username = this.jwtService.extractUsername(token);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-            if (this.jwtService.isTokenValid(token, userDetails)) {
+            var validToken = this.tokenService.getValidTokenByToken(token);
+            if (this.jwtService.isTokenValid(token, userDetails) && validToken != null) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
