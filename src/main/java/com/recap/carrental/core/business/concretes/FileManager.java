@@ -1,5 +1,7 @@
-package com.recap.carrental.core.utilities.fileHelpers;
+package com.recap.carrental.core.business.concretes;
 
+import com.recap.carrental.core.business.abstracts.FileService;
+import com.recap.carrental.core.utilities.fileHelpers.FileContainer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.MediaType;
@@ -14,7 +16,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Service
-public class FileManager implements FileService{
+public class FileManager implements FileService {
 
     @Value("${application.utilities.upload-dir}")
     private Path path;

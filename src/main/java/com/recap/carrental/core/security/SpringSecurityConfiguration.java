@@ -7,12 +7,13 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import static com.recap.carrental.core.entities.enums.Role.ADMIN;
-import static com.recap.carrental.core.entities.enums.Role.MANAGER;
-import static org.springframework.http.HttpMethod.*;
+import static com.recap.carrental.core.entities.enums.Role.USER;
 
 @Configuration
 @RequiredArgsConstructor
@@ -21,6 +22,7 @@ public class SpringSecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authenticationProvider;
+    private final LogoutHandler logoutHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -42,7 +44,7 @@ public class SpringSecurityConfiguration {
                         "/api/v1/auth/**")
                 .permitAll()
 
-                .requestMatchers(GET, "/api/v1/**").hasAnyRole(MANAGER.name(), ADMIN.name())
+                .requestMatchers("/api/v1/**").hasAnyRole(USER.name(), ADMIN.name())
 
                 .anyRequest()
                 .authenticated()
@@ -51,7 +53,11 @@ public class SpringSecurityConfiguration {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authenticationProvider(this.authenticationProvider)
-                .addFilterBefore(this.jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(this.jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .logout()
+                .logoutUrl("/api/v1/auth/logout")
+                .addLogoutHandler(this.logoutHandler)
+                .logoutSuccessHandler(((request, response, authentication) -> SecurityContextHolder.clearContext()));
 
         return http.build();
     }

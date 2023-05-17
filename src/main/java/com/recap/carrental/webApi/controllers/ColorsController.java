@@ -10,11 +10,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Tag(name = "Color")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/colors")
-@Tag(name = "Color")
 public class ColorsController {
 
     private final ColorService colorService;

@@ -5,7 +5,7 @@ import com.recap.carrental.business.mappers.abstracts.CarImageDTOMapperService;
 import com.recap.carrental.business.requests.carImageRequests.CarImageCreateRequest;
 import com.recap.carrental.business.responses.carImageResponses.CarImageGetAllResponse;
 import com.recap.carrental.business.responses.carImageResponses.CarImageGetByIdResponse;
-import com.recap.carrental.core.utilities.fileHelpers.FileService;
+import com.recap.carrental.core.business.abstracts.FileService;
 import com.recap.carrental.dataAccess.CarImageRepository;
 import com.recap.carrental.entities.CarImage;
 import lombok.RequiredArgsConstructor;

@@ -5,11 +5,13 @@ import com.recap.carrental.business.requests.customerRequests.CustomerCreateRequ
 import com.recap.carrental.business.requests.customerRequests.CustomerUpdateRequest;
 import com.recap.carrental.business.responses.customerResponses.CustomerGetAllResponse;
 import com.recap.carrental.business.responses.customerResponses.CustomerGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Customer")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/customers")

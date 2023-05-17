@@ -5,11 +5,13 @@ import com.recap.carrental.business.requests.modelRequests.ModelCreateRequest;
 import com.recap.carrental.business.requests.modelRequests.ModelUpdateRequest;
 import com.recap.carrental.business.responses.modelResponses.ModelGetAllResponse;
 import com.recap.carrental.business.responses.modelResponses.ModelGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Model")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/models")

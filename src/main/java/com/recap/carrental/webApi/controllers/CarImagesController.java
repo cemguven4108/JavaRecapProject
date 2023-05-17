@@ -3,7 +3,8 @@ package com.recap.carrental.webApi.controllers;
 import com.recap.carrental.business.abstracts.CarImageService;
 import com.recap.carrental.business.requests.carImageRequests.CarImageCreateRequest;
 import com.recap.carrental.business.responses.carImageResponses.CarImageGetAllResponse;
-import com.recap.carrental.core.utilities.fileHelpers.FileController;
+import com.recap.carrental.core.webApi.controllers.FileController;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+@Tag(name = "CarImage")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/carImages")

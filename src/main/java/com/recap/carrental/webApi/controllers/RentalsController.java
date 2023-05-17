@@ -5,11 +5,13 @@ import com.recap.carrental.business.requests.rentalRequests.RentalCreateRequest;
 import com.recap.carrental.business.requests.rentalRequests.RentalUpdateRequest;
 import com.recap.carrental.business.responses.rentalResponses.RentalGetAllResponse;
 import com.recap.carrental.business.responses.rentalResponses.RentalGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Rental")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/rentals")

@@ -5,11 +5,13 @@ import com.recap.carrental.business.requests.carRequests.CarCreateRequest;
 import com.recap.carrental.business.requests.carRequests.CarUpdateRequest;
 import com.recap.carrental.business.responses.carResponses.CarGetAllResponse;
 import com.recap.carrental.business.responses.carResponses.CarGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Car")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/cars")

@@ -5,12 +5,14 @@ import com.recap.carrental.business.requests.brandRequests.BrandCreateRequest;
 import com.recap.carrental.business.requests.brandRequests.BrandUpdateRequest;
 import com.recap.carrental.business.responses.brandResponses.BrandGetAllResponse;
 import com.recap.carrental.business.responses.brandResponses.BrandGetByIdResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Brand")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/brands")
