@@ -4,8 +4,22 @@
 
 //Entities \\\
 
-User : UserDetails & User - UserService - UserManager - UserDTOMapperService - UserDTOMapperManager - UserRepository
-Customer : User - Customer - CustomerService - CustomerManager - CustomerDTOMapperService - CustomerDTOMapperManager - CustomerRepository
+User : {
+	UserDetails & User - 
+	UserService - 
+	UserManager - 
+	UserDTOMapperService - 
+	UserDTOMapperManager - 
+	UserRepository
+}
+Customer : {
+	User - Customer - 
+	CustomerService - 
+	CustomerManager - 
+	CustomerDTOMapperService - 
+	CustomerDTOMapperManager - 
+	CustomerRepository
+}
 Car : Car - CarService - CarManager - CarDTOMapperService - CarDTOMapperManager - CarRepository
 Model : Car - Model - ModelService - ModelManager - ModelDTOMapperService - ModelDTOMapperManager - ModelRepository
 Brand : Model - Brand - BrandService - BrandManager - BrandDTOMapperService - BrandDTOMapperManager - BrandRepository
