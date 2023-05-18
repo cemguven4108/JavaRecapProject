@@ -40,8 +40,33 @@ public class BrandsController {
         return this.brandService.getById(brandId);
     }
 
+    @GetMapping(value = "/getByBrandName/{brandName}")
+    public BrandGetByIdResponse getByBrandName(@PathVariable String brandName) {
+        return this.brandService.getByBrandName(brandName);
+    }
+
     @GetMapping(value = "/getAll")
     public List<BrandGetAllResponse> getAll() {
         return this.brandService.getAll();
+    }
+
+    @GetMapping(value = "/getAllSorted")
+    public List<BrandGetAllResponse> getAll(@RequestParam int page, @RequestParam String sortBy) {
+        return this.brandService.getAll(page, sortBy);
+    }
+
+    @GetMapping(value = "/getAllPage")
+    public List<BrandGetAllResponse> getAll(@RequestParam int page) {
+        return this.brandService.getAll(page);
+    }
+
+    @GetMapping(value = "/getAllPageAndSize")
+    public List<BrandGetAllResponse> getAll(@RequestParam int page, @RequestParam int size) {
+        return this.brandService.getAll(page, size);
+    }
+
+    @GetMapping(value = "/getAllSortedPageAndSize")
+    public List<BrandGetAllResponse> getAll(@RequestParam int page, @RequestParam int size, @RequestParam String sortBy) {
+        return this.brandService.getAll(page, size, sortBy);
     }
 }

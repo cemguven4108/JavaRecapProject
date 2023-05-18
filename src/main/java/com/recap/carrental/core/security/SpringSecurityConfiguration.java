@@ -41,10 +41,11 @@ public class SpringSecurityConfiguration {
                         "/swagger-ui/**",
                         "/webjars/**",
                         "/swagger-ui.html",
-                        "/api/v1/auth/**")
+                        "/api/v1/auth/**",
+                        "/api/v1/**")
                 .permitAll()
 
-                .requestMatchers("/api/v1/**").hasAnyRole(USER.name(), ADMIN.name())
+                //.requestMatchers("/api/v1/**").hasAnyRole(USER.name(), ADMIN.name())
 
                 .anyRequest()
                 .authenticated()

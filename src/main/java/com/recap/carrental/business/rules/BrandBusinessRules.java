@@ -18,7 +18,7 @@ public class BrandBusinessRules {
 
     public void checkIfBrandNameExists(String brandName) {
         if (this.brandRepository.existsByBrandName(brandName)) {
-            throw new DuplicateNameException("BrandName Already Exists");
+            throw new DuplicateNameException(String.format("%s Already Exists", brandName));
         }
     }
 

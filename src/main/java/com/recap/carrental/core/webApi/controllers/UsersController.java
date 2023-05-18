@@ -17,18 +17,18 @@ public class UsersController {
     private final UserService userService;
 
     @PostMapping(value = "/create")
-    public String create(@RequestBody User user) {
-        return this.userService.create(user);
+    public void create(@RequestBody User user) {
+        this.userService.create(user);
     }
 
     @PutMapping(value = "/update")
-    public String update(@RequestBody User user) {
-        return this.userService.update(user);
+    public void update(@RequestBody User user) {
+        this.userService.update(user);
     }
 
     @DeleteMapping(value = "/delete/{id}")
-    public String delete(@PathVariable int id) {
-        return this.userService.delete(id);
+    public void delete(@PathVariable int id) {
+        this.userService.delete(id);
     }
 
     @GetMapping(value = "/getById/{id}")

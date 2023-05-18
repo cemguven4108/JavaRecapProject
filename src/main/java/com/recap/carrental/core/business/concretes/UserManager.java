@@ -15,21 +15,18 @@ public class UserManager implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public String create(User user) {
+    public void create(User user) {
         this.userRepository.save(user);
-        return this.userRepository.existsByEmail(user.getEmail()) ? "Success" : "Failed";
     }
 
     @Override
-    public String update(User user) {
+    public void update(User user) {
         this.userRepository.save(user);
-        return "Success";
     }
 
     @Override
-    public String delete(int id) {
+    public void delete(int id) {
         this.userRepository.deleteById(id);
-        return this.userRepository.findById(id).isEmpty() ? "Success" : "Failed";
     }
 
     @Override

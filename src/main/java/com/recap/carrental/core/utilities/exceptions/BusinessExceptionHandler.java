@@ -21,7 +21,7 @@ public class BusinessExceptionHandler {
             MaxNameLengthViolationException.class
     })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ExceptionDetails businessExceptionHandler(EntityDoesNotExistException exception) {
+    public ExceptionDetails businessExceptionHandler(RuntimeException exception) {
         return new ExceptionDetails(
                 exception.getMessage(),
                 ZonedDateTime.now()

@@ -1,0 +1,78 @@
+2023-05-18T11:32:08.676+03:00  INFO 14808 --- [restartedMain] c.recap.carrental.CarRentalApplication   : Starting CarRentalApplication using Java 17.0.7 with PID 14808 (C:\Users\cemgu\Desktop\devsJavaWorkspace\carRental\target\classes started by cemgu in C:\Users\cemgu\Desktop\devsJavaWorkspace\carRental)
+2023-05-18T11:32:08.679+03:00  INFO 14808 --- [restartedMain] c.recap.carrental.CarRentalApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-05-18T11:32:08.716+03:00  INFO 14808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-18T11:32:08.716+03:00  INFO 14808 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-18T11:32:09.399+03:00  INFO 14808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-18T11:32:09.473+03:00  INFO 14808 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 9 JPA repository interfaces.
+2023-05-18T11:32:09.931+03:00  INFO 14808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-18T11:32:09.938+03:00  INFO 14808 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-18T11:32:09.939+03:00  INFO 14808 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-18T11:32:10.001+03:00  INFO 14808 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-18T11:32:10.001+03:00  INFO 14808 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1284 ms
+2023-05-18T11:32:10.101+03:00  INFO 14808 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-18T11:32:10.144+03:00  INFO 14808 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-18T11:32:10.382+03:00  INFO 14808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-18T11:32:10.516+03:00  INFO 14808 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@75cd8e0c
+2023-05-18T11:32:10.517+03:00  INFO 14808 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-18T11:32:10.541+03:00  INFO 14808 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-18T11:32:11.334+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.334+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "car_images" does not exist, skipping
+2023-05-18T11:32:11.335+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.335+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "cars" does not exist, skipping
+2023-05-18T11:32:11.335+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.336+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "cars" does not exist, skipping
+2023-05-18T11:32:11.336+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.336+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "customers" does not exist, skipping
+2023-05-18T11:32:11.336+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.336+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "models" does not exist, skipping
+2023-05-18T11:32:11.337+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.337+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "rentals" does not exist, skipping
+2023-05-18T11:32:11.338+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.338+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "rentals" does not exist, skipping
+2023-05-18T11:32:11.338+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.338+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tokens" does not exist, skipping
+2023-05-18T11:32:11.339+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.339+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "brands" does not exist, skipping
+2023-05-18T11:32:11.339+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.339+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "car_images" does not exist, skipping
+2023-05-18T11:32:11.340+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.340+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "cars" does not exist, skipping
+2023-05-18T11:32:11.340+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.340+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "colors" does not exist, skipping
+2023-05-18T11:32:11.341+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.341+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "customers" does not exist, skipping
+2023-05-18T11:32:11.341+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.341+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "models" does not exist, skipping
+2023-05-18T11:32:11.342+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.342+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "rentals" does not exist, skipping
+2023-05-18T11:32:11.342+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.342+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tokens" does not exist, skipping
+2023-05-18T11:32:11.343+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-05-18T11:32:11.343+03:00  WARN 14808 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "users" does not exist, skipping
+2023-05-18T11:32:11.428+03:00  INFO 14808 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-18T11:32:11.436+03:00  INFO 14808 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18T11:32:12.034+03:00  WARN 14808 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-18T11:32:12.256+03:00  INFO 14808 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f20009c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ca10cc4, org.springframework.security.web.context.SecurityContextHolderFilter@156a6c20, org.springframework.security.web.header.HeaderWriterFilter@5e7cd845, org.springframework.security.web.authentication.logout.LogoutFilter@d478c99, com.recap.carrental.core.security.JwtAuthenticationFilter@23760f92, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@447d9490, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4166225a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@757816a2, org.springframework.security.web.session.SessionManagementFilter@21db9fc8, org.springframework.security.web.access.ExceptionTranslationFilter@5fc00c7f, org.springframework.security.web.access.intercept.AuthorizationFilter@71ea491d]
+2023-05-18T11:32:12.498+03:00  INFO 14808 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-18T11:32:12.534+03:00  INFO 14808 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-18T11:32:12.544+03:00  INFO 14808 --- [restartedMain] c.recap.carrental.CarRentalApplication   : Started CarRentalApplication in 4.244 seconds (process running for 4.843)
+2023-05-18T11:32:31.809+03:00  INFO 14808 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-18T11:32:31.809+03:00  INFO 14808 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-18T11:32:31.810+03:00  INFO 14808 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-18T11:32:32.508+03:00  INFO 14808 --- [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 439 ms
+2023-05-18T11:32:36.824+03:00  INFO 14808 --- [http-nio-8080-exec-10] c.r.c.business.concretes.BrandManager    : Running BusinessRules For BrandManager Create Method
+2023-05-18T11:32:36.936+03:00  INFO 14808 --- [http-nio-8080-exec-10] c.r.c.business.concretes.BrandManager    : Complete BusinessRules For BrandManager Create Method
+2023-05-18T11:32:38.198+03:00  INFO 14808 --- [http-nio-8080-exec-1] c.r.c.business.concretes.BrandManager    : Running BusinessRules For BrandManager Create Method
+2023-05-18T11:32:38.200+03:00  INFO 14808 --- [http-nio-8080-exec-1] c.r.c.business.concretes.BrandManager    : Complete BusinessRules For BrandManager Create Method
+2023-05-18T11:32:39.348+03:00  INFO 14808 --- [http-nio-8080-exec-3] c.r.c.business.concretes.BrandManager    : Running BusinessRules For BrandManager Create Method
+2023-05-18T11:32:39.350+03:00  INFO 14808 --- [http-nio-8080-exec-3] c.r.c.business.concretes.BrandManager    : Complete BusinessRules For BrandManager Create Method
+2023-05-18T11:32:40.411+03:00  INFO 14808 --- [http-nio-8080-exec-2] c.r.c.business.concretes.BrandManager    : Running BusinessRules For BrandManager Create Method
+2023-05-18T11:32:40.412+03:00  INFO 14808 --- [http-nio-8080-exec-2] c.r.c.business.concretes.BrandManager    : Complete BusinessRules For BrandManager Create Method
+2023-05-18T11:32:45.840+03:00  INFO 14808 --- [http-nio-8080-exec-5] c.r.c.business.concretes.BrandManager    : Running BusinessRules For BrandManager Create Method
+2023-05-18T11:32:45.847+03:00  WARN 14808 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.recap.carrental.core.utilities.exceptions.runtimeExceptions.DuplicateNameException: straaiang Already Exists]
+2023-05-18T11:32:54.541+03:00  INFO 14808 --- [http-nio-8080-exec-4] c.r.c.business.concretes.BrandManager    : Fetching Brands From Database
+2023-05-18T11:32:54.559+03:00  INFO 14808 --- [http-nio-8080-exec-4] c.r.c.business.concretes.BrandManager    : Returning List<Brand> Data
+2023-05-18T11:33:29.108+03:00  INFO 14808 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-18T11:33:29.109+03:00  INFO 14808 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2023-05-18T11:33:29.142+03:00  INFO 14808 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-18T11:33:29.144+03:00  INFO 14808 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
